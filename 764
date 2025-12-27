@@ -1,0 +1,11 @@
+def print_file_with_lines(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            for line_num, content in enumerate(file, 1):
+                print(f"{line_num}: {content.strip()}")
+    except FileNotFoundError:
+        print("Помилка: Файл не знайдено.")
+    except Exception as e:
+        print(f"Сталася помилка: {e}")
+
+print_file_with_lines('input.txt')
