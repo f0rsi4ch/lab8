@@ -1,0 +1,11 @@
+path = r'C:\Users\UseR\Desktop\input1.txt'
+
+try:
+    with open(path, 'r', encoding='utf-8') as f:
+        count = 0
+        for line in f:
+            count += 1
+    print("Успішно!")
+    print(f"Кількість рядків: {count}")
+except Exception as e:
+    print(f"Помилка: {e}")
