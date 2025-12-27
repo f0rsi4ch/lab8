@@ -1,0 +1,28 @@
+keys = ['A', 'B', 'A', 'C', 'D', 'B', 'A', 'C', 'B', 'D',
+        'A', 'D', 'C', 'B', 'A', 'D', 'C', 'C', 'B', 'A']
+
+file_path = 'test.txt'
+
+try:
+    with open(file_path, 'r', encoding='utf-8') as f:
+        student = [line.strip().upper() for line in f if line.strip()]
+
+    correct = 0
+    errors = []
+
+    for i in range(20):
+        if student[i] == keys[i]:
+            correct += 1
+        else:
+            errors.append(i + 1)
+
+    print(f"Результат: {'СКЛАДЕНО' if correct >= 15 else 'НЕ СКЛАДЕНО'}")
+    print(f"Правильних: {correct}")
+    print(f"Неправильних: {20 - correct}")
+    if errors:
+        print(f"Помилки в питаннях: {errors}")
+
+except FileNotFoundError:
+    print("Помилка: Файл не знайдено.")
+except IndexError:
+    print("Помилка: У файлі менше 20 відповідей.")
