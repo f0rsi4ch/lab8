@@ -1,0 +1,18 @@
+input_path = 'input.txt'
+output_path = 'output.txt'
+
+try:
+    with open(input_path, 'r', encoding='utf-8') as f_in:
+        line = f_in.read()
+
+    reversed_line = line[::-1]
+
+    with open(output_path, 'w', encoding='utf-8') as f_out:
+        f_out.write(reversed_line)
+
+    print("Рядок успішно розвернуто та записано!")
+
+except FileNotFoundError:
+    print(f"Помилка: Файл {input_path} не знайдено.")
+except Exception as e:
+    print(f"Сталася помилка: {e}")
