@@ -1,0 +1,23 @@
+input_path = 'input.txt'
+output_path = 'output.txt'
+
+try:
+    word_counts = {}
+
+    with open(input_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            words = line.split()
+            for word in words:
+                word = word.lower()
+                word_counts[word] = word_counts.get(word, 0) + 1
+
+    with open(output_path, 'w', encoding='utf-8') as f_out:
+        for word, count in word_counts.items():
+            f_out.write(f"{word}: {count}\n")
+
+    print(f"Аналіз завершено. Результат у файлі: {output_path}")
+
+except FileNotFoundError:
+    print("Помилка: Вхідний файл не знайдено.")
+except Exception as e:
+    print(f"Сталася помилка: {e}")
